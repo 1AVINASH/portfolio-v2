@@ -21,15 +21,12 @@ export default class Game extends Phaser.Scene {
     }
 
     create() {
-        // --- 2. Basic Scene Setup and Debugging Aids ---
-
-        // Set a background color to easily see if the scene is rendering anything
+        // Setting a background color to easily see if the scene is rendering anything
         this.cameras.main.setBackgroundColor('#333333'); // A dark grey, easily distinguishable
         this.staticColliders = this.physics.add.staticGroup(); 
         this.cursors = this.input.keyboard!.createCursorKeys();
 
         // Create the map object using the key you defined in preload()
-        // console.log('Phaser Map Object:', map); // DEBUG: Check if map object is created successfully
         const map = this.make.tilemap({ key: 'platformer' });
         const tileset = map.addTilesetImage('Tileset', 'tileset');
 
@@ -44,7 +41,6 @@ export default class Game extends Phaser.Scene {
         const tiledLayer1 = map.createLayer("Terrain", tileset, 0, 0);
         const collisionObjects = map.getObjectLayer('collision');
 
-        console.log('Tiled Layer 1 created:', tiledLayer1); // DEBUG: Check if layer objects are created
         if (collisionObjects) {
             collisionObjects.objects.forEach(obj => {
                 // Create a static physics body for each object in the 'collision' layer
@@ -76,11 +72,7 @@ export default class Game extends Phaser.Scene {
             // console.log('Player collided with static group!');
         });
 
-        console.log('Setting Camera Bounds to:', 0, 0, map.widthInPixels+200, map.heightInPixels);
         this.cameras.main.setBounds(-175, 0, map.widthInPixels+500, map.heightInPixels);
-        console.log('Camera World View after setBounds:', this.cameras.main.worldView);
-
-
         this.cameras.main.startFollow(this.player);
 
         this.cameras.main.setLerp(1, 1);
@@ -105,7 +97,6 @@ export default class Game extends Phaser.Scene {
         // Check if 'UP' arrow is pressed AND the player is currently on the floor
         if (this.cursors.up.isDown && this.player.body?.blocked.down) {
             this.player.setVelocityY(-250); // Apply an upward velocity for jumping (negative Y is up)
-            console.log('Player jumped!'); // Debug: Confirm jump
         }
     }
 }
