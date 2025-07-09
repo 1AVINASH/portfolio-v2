@@ -73,7 +73,7 @@
                  "y":239.537869062901
                 }, 
                 {
-                 "height":32.3492,
+                 "height":32,
                  "id":4,
                  "name":"",
                  "properties":[
@@ -85,9 +85,9 @@
                  "rotation":0,
                  "type":"",
                  "visible":true,
-                 "width":47.2401,
-                 "x":320.87995,
-                 "y":158.8254
+                 "width":48,
+                 "x":320,
+                 "y":160
                 }, 
                 {
                  "height":32.3492,
@@ -162,9 +162,122 @@
          "visible":true,
          "x":0,
          "y":0
+        }, 
+        {
+         "draworder":"topdown",
+         "id":3,
+         "name":"Platforms",
+         "objects":[
+                {
+                 "height":32,
+                 "id":11,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"Career"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":128,
+                 "y":160
+                }, 
+                {
+                 "height":32,
+                 "id":12,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"Work"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":320,
+                 "y":160
+                }, 
+                {
+                 "height":32,
+                 "id":14,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"Resume"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":512,
+                 "y":160
+                }, 
+                {
+                 "height":32,
+                 "id":15,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"About Me"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":816,
+                 "y":160
+                }, 
+                {
+                 "height":32,
+                 "id":16,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"Contact Me"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":1056,
+                 "y":160
+                }, 
+                {
+                 "height":32,
+                 "id":17,
+                 "name":"",
+                 "properties":[
+                        {
+                         "name":"label",
+                         "type":"string",
+                         "value":"Random"
+                        }],
+                 "rotation":0,
+                 "type":"",
+                 "visible":true,
+                 "width":48,
+                 "x":1328,
+                 "y":160
+                }],
+         "opacity":1,
+         "type":"objectgroup",
+         "visible":true,
+         "x":0,
+         "y":0
         }],
- "nextlayerid":3,
- "nextobjectid":10,
+ "nextlayerid":4,
+ "nextobjectid":18,
  "orientation":"orthogonal",
  "renderorder":"right-down",
  "tiledversion":"1.11.1-99-gec89c545",

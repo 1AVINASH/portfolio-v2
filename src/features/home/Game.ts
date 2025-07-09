@@ -40,6 +40,7 @@ export default class Game extends Phaser.Scene {
         }
         const tiledLayer1 = map.createLayer("Terrain", tileset, 0, 0);
         const collisionObjects = map.getObjectLayer('collision');
+        const platformObjects = map.getObjectLayer('Platforms');
 
         if (collisionObjects) {
             collisionObjects.objects.forEach(obj => {
@@ -57,7 +58,31 @@ export default class Game extends Phaser.Scene {
             console.warn("Object layer 'collision' not found in map.");
         }
 
-        this.player = this.physics.add.sprite(100, 100, '__WHITE');
+        platformObjects!.objects.forEach(obj => {
+        if (obj.name === "" && obj.properties) {
+            const label = obj.properties.find((p: any) => p.name === "label")?.value || "";
+
+            // Create a physics sprite from the tilemap object
+            const platform = this.physics.add.staticSprite(obj.x! + obj.width! / 2, obj.y! + obj.height! / 2, "");
+            platform.setSize(obj.width!, obj.height!); // Important for hitboxes
+            platform.setVisible(false); // Hide the sprite if you're just using it as a marker
+
+            // Create text and add to a container with the platform
+            const text = this.add.text(0, 0, label, {
+            fontSize: '8px',
+            color: '#ffffff',
+            align: 'center',
+            fontFamily: 'monospace',
+            backgroundColor: '#00000088',
+            }).setOrigin(0.5, -1);
+
+            const container = this.add.container(obj.x! + obj.width! / 2, obj.y!).add([text]);
+
+            // Optional: if platform should be interactive or move later, you can track `container` or `platform`
+        }
+        });
+
+        this.player = this.physics.add.sprite(110, 100, '__WHITE');
         this.player.setDisplaySize(32, 40); // Set its visual size
         this.player.setTint(0xff0000);      // Make it red for easy visibility
         
@@ -72,7 +97,7 @@ export default class Game extends Phaser.Scene {
             // console.log('Player collided with static group!');
         });
 
-        this.cameras.main.setBounds(-175, 0, map.widthInPixels+500, map.heightInPixels);
+        this.cameras.main.setBounds(-125, 0, map.widthInPixels+500, map.heightInPixels);
         this.cameras.main.startFollow(this.player);
 
         this.cameras.main.setLerp(1, 1);
